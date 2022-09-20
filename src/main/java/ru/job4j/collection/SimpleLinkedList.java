@@ -9,49 +9,38 @@ import java.util.Objects;
 public class SimpleLinkedList<E> implements LinkedList<E> {
     private int modCount;
     private int size;
-    private Node<E> first;
-    private Node<E> last;
+    private Node<E> head;
 
     private static class Node<E> {
         E item;
         Node<E> next;
-        Node<E> prev;
 
-        Node(Node<E> prev, E element, Node<E> next) {
+        Node(E element) {
             this.item = element;
-            this.next = next;
-            this.prev = prev;
         }
     }
 
     @Override
     public void add(E value) {
-        final Node<E> l = last;
-        final Node<E> newNode = new Node<>(l, value, null);
-        last = newNode;
-        if (l == null) {
-            first = newNode;
-        } else {
-            l.next = newNode;
-        }
         modCount++;
         size++;
+        if (head == null) {
+            head = new Node<>(value);
+            return;
+        }
+        Node<E> currentNode = head;
+        while (currentNode.next != null) {
+            currentNode = currentNode.next;
+        }
+        currentNode.next = new Node<>(value);
     }
 
     @Override
     public E get(int index) {
         Objects.checkIndex(index, size);
-        Node<E> result;
-        if (index < size / 2) {
-            result = first;
-            for (int i = 0; i < index; i++) {
-                result = result.next;
-            }
-        } else {
-            result = last;
-            for (int i = size - 1; i > index; i--) {
-                result = result.prev;
-            }
+        Node<E> result = head;
+        for (int i = 0; i < index; i++) {
+            result = result.next;
         }
         return result.item;
     }
@@ -60,7 +49,7 @@ public class SimpleLinkedList<E> implements LinkedList<E> {
     public Iterator<E> iterator() {
         return new Iterator<E>() {
             int expectedModCount = modCount;
-            Node<E> index = first;
+            Node<E> index = head;
             @Override
             public boolean hasNext() {
                 if (expectedModCount != modCount) {
