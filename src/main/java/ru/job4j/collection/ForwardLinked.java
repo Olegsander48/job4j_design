@@ -30,7 +30,7 @@ public class ForwardLinked<T> implements Iterable<T> {
                 head = current;
                 current = next;
             }
-            return true;
+            result = true;
         }
         return result;
     }
