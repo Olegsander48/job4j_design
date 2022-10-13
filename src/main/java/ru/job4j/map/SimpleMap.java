@@ -32,7 +32,7 @@ public class SimpleMap<K, V> implements Map<K, V> {
     }
 
     private int hash(int hashCode) {
-        return (hashCode) ^ (hashCode >>> capacity);
+        return (hashCode) ^ (hashCode >>> 16);
     }
 
     private int indexFor(int hash) {
@@ -58,8 +58,12 @@ public class SimpleMap<K, V> implements Map<K, V> {
         V result = null;
         int index = key != null ? indexFor(hash(key.hashCode())) : 0;
         MapEntry<K, V> entry = table[index];
-        if (index < capacity && entry != null && entry.key == key) {
-            result = entry.value;
+        if (index < capacity && entry != null) {
+            if (key != null && entry.key != null && entry.key.hashCode() == key.hashCode() && entry.key.equals(key)) {
+                result = entry.value;
+            } else if (key == null && entry.key == null) {
+                result = entry.value;
+            }
         }
         return result;
     }
@@ -68,11 +72,19 @@ public class SimpleMap<K, V> implements Map<K, V> {
     public boolean remove(K key) {
         boolean result = false;
         int index = key != null ? indexFor(hash(key.hashCode())) : 0;
-        if (table[index] != null && table[index].key == key) {
-            table[index] = null;
-            count--;
-            modCount++;
-            result = true;
+        MapEntry<K, V> entry = table[index];
+        if (table[index] != null) {
+            if (key != null && entry.key != null && entry.key.hashCode() == key.hashCode() && entry.key.equals(key)) {
+                table[index] = null;
+                count--;
+                modCount++;
+                result = true;
+            } else if (key == null && entry.key == null) {
+                table[index] = null;
+                count--;
+                modCount++;
+                result = true;
+            }
         }
         return result;
     }
