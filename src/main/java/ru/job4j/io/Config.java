@@ -18,9 +18,16 @@ public class Config {
     public void load() {
         try (BufferedReader read = new BufferedReader(new FileReader(this.path))) {
             read.lines()
-                    .filter(s1 -> !s1.isEmpty())
-                    .filter(s -> !s.startsWith("#"))
-                    .forEach(s -> checkString(s));
+                    .filter(s -> !s.isBlank() && !s.startsWith("#"))
+                    .forEach(str -> {
+                        checkString(str);
+                        String key = str.substring(0, str.split("=")[0].length());
+                        String value = str.substring(str.split("=")[0].length() + 1);
+                        if (key.isBlank() || value.isBlank() || !str.contains("=")) {
+                            throw new IllegalArgumentException();
+                        }
+                        values.put(key, value);
+                    });
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -30,14 +37,6 @@ public class Config {
         if (!str.contains("=") || (str.length() == 1 && str.contains("="))) {
             throw new IllegalArgumentException();
         }
-
-        String key = str.substring(0, str.split("=")[0].length());
-        String value = str.substring(str.split("=")[0].length() + 1);
-        if ((key.isEmpty() || value.isEmpty())
-                || (!key.isEmpty() && !value.isEmpty() && !str.contains("="))) {
-            throw new IllegalArgumentException();
-        }
-        values.put(key, value);
     }
 
     public String value(String key) {
