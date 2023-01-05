@@ -18,14 +18,10 @@ public class Config {
     public void load() {
         try (BufferedReader read = new BufferedReader(new FileReader(this.path))) {
             read.lines()
-                    .filter(s -> !s.isBlank() && !s.startsWith("#"))
+                    .filter(this::checkString)
                     .forEach(str -> {
-                        checkString(str);
-                        String key = str.substring(0, str.split("=")[0].length());
-                        String value = str.substring(str.split("=")[0].length() + 1);
-                        if (key.isBlank() || value.isBlank() || !str.contains("=")) {
-                            throw new IllegalArgumentException();
-                        }
+                        String key = str.substring(0, str.indexOf("="));
+                        String value = str.substring(str.indexOf("=") + 1);
                         values.put(key, value);
                     });
         } catch (IOException e) {
@@ -33,10 +29,14 @@ public class Config {
         }
     }
 
-    private void checkString(String str) {
-        if (!str.contains("=") || (str.length() == 1 && str.contains("="))) {
+    private boolean checkString(String str) {
+        if ((!str.isBlank() && !str.startsWith("#") && !str.contains("="))
+                || (str.length() == 1 && str.contains("="))
+                || (str.contains("=") && (str.substring(0, str.indexOf("=")).isBlank()
+                    || str.substring(str.indexOf("=") + 1).isBlank()))) {
             throw new IllegalArgumentException();
         }
+        return !str.isBlank() && !str.startsWith("#");
     }
 
     public String value(String key) {
