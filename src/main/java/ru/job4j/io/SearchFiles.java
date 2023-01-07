@@ -20,9 +20,7 @@ public class SearchFiles implements FileVisitor<Path> {
     }
 
     public List<Path> getPaths() {
-        return paths.stream()
-                .filter(condition)
-                .collect(Collectors.toList());
+        return paths;
     }
 
     @Override
@@ -32,7 +30,9 @@ public class SearchFiles implements FileVisitor<Path> {
 
     @Override
     public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-        paths.add(file.getFileName());
+        if (condition.test(file)) {
+            paths.add(file.getFileName());
+        }
         return CONTINUE;
     }
 
