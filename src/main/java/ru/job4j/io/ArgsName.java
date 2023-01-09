@@ -15,29 +15,27 @@ public class ArgsName {
     }
 
     private void parse(String[] args) {
-        checkString(args);
         for (String str : args) {
+            checkString(str);
             values.put(
                     str.substring(str.indexOf("-") + 1, str.indexOf("=")),
                     str.substring(str.indexOf("=") + 1));
         }
     }
 
-    private void checkString(String[] args) {
-        if (args.length == 0) {
-            throw new IllegalArgumentException();
-        }
-        for (String str : args) {
-            if (!str.startsWith("-")
-                    || !str.contains("=")
-                    || str.substring(str.indexOf("-") + 1, str.indexOf("=")).isBlank()
-                    || str.substring(str.indexOf("=") + 1).isBlank()) {
-                throw new IllegalArgumentException();
-            }
+    private void checkString(String str) {
+        if (!str.startsWith("-")
+                || !str.contains("=")
+                || str.substring(str.indexOf("-") + 1, str.indexOf("=")).isBlank()
+                || str.substring(str.indexOf("=") + 1).isBlank()) {
+            throw new IllegalArgumentException(String.format("String doesn't match pattern: -key=value. Input string is: %s", str));
         }
     }
 
     public static ArgsName of(String[] args) {
+        if (args.length == 0) {
+            throw new IllegalArgumentException();
+        }
         ArgsName names = new ArgsName();
         names.parse(args);
         return names;
