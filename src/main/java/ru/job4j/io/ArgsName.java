@@ -1,5 +1,6 @@
 package ru.job4j.io;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,7 +34,11 @@ public class ArgsName {
     }
 
     public static ArgsName of(String[] args) {
-        if (args.length == 0) {
+        if (args.length == 0
+                || Arrays.stream(args)
+                    .anyMatch(str -> !str.startsWith("-o")
+                            && !str.startsWith("-d")
+                            && !str.startsWith("-e"))) {
             throw new IllegalArgumentException();
         }
         ArgsName names = new ArgsName();
