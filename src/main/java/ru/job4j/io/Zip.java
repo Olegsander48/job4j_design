@@ -2,17 +2,17 @@ package ru.job4j.io;
 
 import java.io.*;
 import java.nio.file.Path;
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 public class Zip {
-    public void packFiles(List<File> sources, File target) {
+    public void packFiles(List<Path> sources, File target) {
         try (ZipOutputStream zip = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(target)))) {
-            for (File file : sources) {
-                zip.putNextEntry(new ZipEntry(file.getPath()));
-                try (BufferedInputStream out = new BufferedInputStream(new FileInputStream(file.getPath()))) {
+            for (Path path : sources) {
+                zip.putNextEntry(new ZipEntry(path.toString()));
+                try (BufferedInputStream out = new BufferedInputStream(new FileInputStream(path.toString()))) {
                     zip.write(out.readAllBytes());
                 }
             }
@@ -21,34 +21,48 @@ public class Zip {
         }
     }
 
-    public void packSingleFile(File source, File target) {
-        try (ZipOutputStream zip = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(target)))) {
-            zip.putNextEntry(new ZipEntry(source.getPath()));
-            try (BufferedInputStream out = new BufferedInputStream(new FileInputStream(source))) {
-                zip.write(out.readAllBytes());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    private static void checkParams(String[] args) {
+        if (args.length != 3) {
+            throw new IllegalArgumentException("Directory for archived, excluded files and output archive is null.");
+        }
+
+        if (Arrays.stream(args)
+                .anyMatch(str -> !str.startsWith("-o")
+                        && !str.startsWith("-d")
+                        && !str.startsWith("-e"))) {
+            throw new IllegalArgumentException("The params have invalid format. Use -d for archive directory, -e for exclude files and -o for output archive");
+        }
+
+        ArgsName argsName = ArgsName.of(args);
+        File file = new File(argsName.get("d"));
+        if (!file.exists()) {
+            throw new IllegalArgumentException(String.format("Directory not exist %s", file.getAbsoluteFile()));
+        }
+        if (!file.isDirectory()) {
+            throw new IllegalArgumentException(String.format("Not directory %s", file.getAbsoluteFile()));
+        }
+
+        if (argsName.get("e").length() < 2 || !argsName.get("e").startsWith(".")) {
+            throw new IllegalArgumentException("File extension has invalid form. Please, usage .FILE_EXTENSION ");
+        }
+
+        if (!argsName.get("o").endsWith(".zip")) {
+            throw new IllegalArgumentException(String.format("Not zip-archive %s", argsName.get("o")));
         }
     }
 
     public static void main(String[] args) throws IOException {
+        checkParams(args);
         Zip zip = new Zip();
-
         ArgsName argsName = ArgsName.of(args);
-
-        Search.main(new String[]{argsName.get("d"), argsName.get("e")});
 
         List<Path> listOfPaths = Search.search(
                 Path.of(argsName.get("d")),
                 p -> !p.toFile().getName().endsWith(argsName.get("e"))
         );
-        List<File> listOfFiles = listOfPaths.stream()
-                .map(Path::toFile)
-                .collect(Collectors.toList());
 
         zip.packFiles(
-                listOfFiles,
+                listOfPaths,
                 Path.of(argsName.get("o")).toFile()
         );
     }
