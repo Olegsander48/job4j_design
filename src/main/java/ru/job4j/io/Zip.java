@@ -2,7 +2,6 @@ package ru.job4j.io;
 
 import java.io.*;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
@@ -24,13 +23,6 @@ public class Zip {
     private static void checkParams(String[] args) {
         if (args.length != 3) {
             throw new IllegalArgumentException("Directory for archived, excluded files and output archive is null.");
-        }
-
-        if (Arrays.stream(args)
-                .anyMatch(str -> !str.startsWith("-o")
-                        && !str.startsWith("-d")
-                        && !str.startsWith("-e"))) {
-            throw new IllegalArgumentException("The params have invalid format. Use -d for archive directory, -e for exclude files and -o for output archive");
         }
 
         ArgsName argsName = ArgsName.of(args);
