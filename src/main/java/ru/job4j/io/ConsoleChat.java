@@ -29,14 +29,14 @@ public class ConsoleChat {
 
         boolean flag = false;
 
-        while (!userAnswer.equals(OUT)) {
+        while (!OUT.equals(userAnswer)) {
             System.out.println("Input your phrase: ");
             userAnswer = scanner.nextLine();
             logs.add(userAnswer);
-            if (userAnswer.equals(STOP)) {
+            if (STOP.equals(userAnswer)) {
                 flag = true;
             }
-            if (userAnswer.equals(CONTINUE)) {
+            if (CONTINUE.equals(userAnswer)) {
                 flag = false;
             }
             if (flag) {
