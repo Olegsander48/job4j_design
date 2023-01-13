@@ -23,6 +23,7 @@ public class EchoServer {
                     } else {
                         out.write("What".getBytes());
                     }
+                    out.flush();
                 }
             }
         }
