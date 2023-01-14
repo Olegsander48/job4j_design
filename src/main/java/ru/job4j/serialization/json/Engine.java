@@ -1,9 +1,20 @@
 package ru.job4j.serialization.json;
 
+import javax.xml.bind.annotation.*;
+
+@XmlRootElement(name = "Engine")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Engine {
-    final double capacity;
-    final int power;
-    final int torque;
+
+    @XmlAttribute
+    private double capacity;
+    @XmlAttribute
+    private int power;
+    @XmlAttribute
+    private int torque;
+
+    public Engine() {
+    }
 
     public Engine(double volume, int power, int torque) {
         this.capacity = volume;

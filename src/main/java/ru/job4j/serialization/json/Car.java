@@ -1,13 +1,24 @@
 package ru.job4j.serialization.json;
 
+import javax.xml.bind.annotation.*;
 import java.util.Arrays;
 
+@XmlRootElement(name = "Car")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Car {
-    private final boolean manual;
-    private final int price;
-    private final String brand;
-    private final Engine engine;
-    private final String[] options;
+    @XmlAttribute
+    private boolean manual;
+    @XmlAttribute
+    private int price;
+    @XmlAttribute
+    private String brand;
+    private Engine engine;
+    @XmlElementWrapper(name = "options")
+    @XmlElement(name = "option")
+    private String[] options;
+
+    public Car() {
+    }
 
     public Car(boolean manual, int price, String brand, Engine engine, String[] options) {
         this.manual = manual;

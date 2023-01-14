@@ -1,21 +1,35 @@
 package ru.job4j.serialization.json;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws JAXBException, IOException {
         final Car car = new Car(false, 7000, "Mercedes", new Engine(2.2, 170, 400),
                 new String[] {"heated seats", "heated mirrors"});
 
-        /** Преобразуем объект Car в json-строку. */
-        final Gson gson = new GsonBuilder().create();
-        String carJson = gson.toJson(car);
-        System.out.println(carJson);
+        JAXBContext context = JAXBContext.newInstance(Car.class);
 
-        /** Преобразуем объект Json в объект Car. */
-        final Car carFromJson = gson.fromJson(carJson, Car.class);
-        System.out.println(carFromJson);
+        Marshaller marshaller = context.createMarshaller();
+
+        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+        String xml = "";
+        try (StringWriter writer = new StringWriter()) {
+            marshaller.marshal(car, writer);
+            xml = writer.getBuffer().toString();
+            System.out.println(xml);
+        }
+
+        Unmarshaller unmarshaller = context.createUnmarshaller();
+        try (StringReader reader = new StringReader(xml)) {
+            Car result = (Car) unmarshaller.unmarshal(reader);
+            System.out.println(result);
+        }
 
     }
 }
