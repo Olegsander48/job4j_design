@@ -32,7 +32,7 @@ insert into devices_people(device_id, people_id) values (1, 3);
 insert into devices_people(device_id, people_id) values (4, 2);
 insert into devices_people(device_id, people_id) values (3, 4);
 
-select avg(price) as "Средняя цена устройств" from devices;
+select avg(price) as "РђРіСЂРµРіР°С‚РЅС‹Рµ С„СѓРЅРєС†РёРё" from devices;
 
 select p.name, avg(d.price) 
 from devices as d
