@@ -26,7 +26,7 @@ insert into automobile(brand, price, manual, engine_id) values('land rover', 700
 select au.brand, au.price, au.manual, en."power" from automobile as au 
 join engine as en on au.engine_id = en."id";
 
-select au.brand as "Бренд автомобиля", au.price as "Цена автомобиля", en."power" as "Мощность автомобиля" from automobile as au 
+select au.brand as "Р‘СЂРµРЅРґ Р°РІС‚РѕРјРѕР±РёР»СЏ", au.price as "Р¦РµРЅР°", en."power" as "РњРѕС‰РЅРѕСЃС‚СЊ РґРІРёРіР°С‚РµР»СЏ" from automobile as au
 join engine as en on au.engine_id = en."id";
 
 select au.brand, au.price, au.manual, en."power" from automobile as au 
