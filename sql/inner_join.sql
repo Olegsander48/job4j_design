@@ -23,12 +23,20 @@ insert into automobile(brand, price, manual, engine_id) values('land rover', 600
 insert into automobile(brand, price, manual, engine_id) values('land rover', 18000, false, 4);
 insert into automobile(brand, price, manual, engine_id) values('land rover', 70000, true , 5);
 
-select au.brand, au.price, au.manual, en."power" from automobile as au 
-join engine as en on au.engine_id = en."id";
+select au.brand, au.price, au.manual, en."power"
+from automobile as au
+join engine as en
+on au.engine_id = en."id";
 
-select au.brand as "Бренд автомобиля", au.price as "Цена", en."power" as "Мощность двигателя" from automobile as au
-join engine as en on au.engine_id = en."id";
+select au.brand as "Бренд автомобиля", au.price as "Цена",
+en."power" as "Мощность двигателя"
+from automobile as au
+join engine as en
+on au.engine_id = en."id";
 
-select au.brand, au.price, au.manual, en."power" from automobile as au 
-join engine as en on au.engine_id = en."id" and au.manual = true;
+select au.brand, au.price, au.manual, en."power"
+from automobile as au
+join engine as en
+on au.engine_id = en."id"
+and au.manual = true;
 
