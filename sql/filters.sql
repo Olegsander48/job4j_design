@@ -25,8 +25,10 @@ insert into product(name, type_id, expired_date, price) values ('steak', 3, '202
 insert into product(name, type_id, expired_date, price) values ('bitter chocolate', 4, '2024-01-01', 25.00);
 insert into product(name, type_id, expired_date, price) values ('bitter chocolate', 4, '2024-01-01', 3.00);
 
-select product.name, product.expired_date, product.price, type.name from product, "type"
-where product.type_id = type.id and type.name = 'cheese';
+select product.name, product.expired_date, product.price, type.name
+from product, "type"
+where product.type_id = type.id
+and type.name = 'cheese';
 
 select * from product
 where name LIKE '%ice cream%';
@@ -41,13 +43,17 @@ select type.name, count(*) from product, "type"
 where product.type_id = "type".id
 group by type.name;
 
-select product.name, product.expired_date, product.price, type.name from product, "type"
-where product.type_id = type.id and (type.name = 'cheese' or type.name = 'milk'); 
+select product.name, product.expired_date, product.price, type.name
+from product, "type"
+where product.type_id = type.id
+and (type.name = 'cheese' or type.name = 'milk');
 
-select count(product.name), type.name from product, "type"
+select count(product.name), type.name
+from product, "type"
 where product.type_id = "type".id
 group by type.name
 having count(product.name) < 10;
 
-select product.name, product.expired_date, product.price, type.name from product, "type"
+select product.name, product.expired_date, product.price, type.name
+from product, "type"
 where product.type_id = type.id;
