@@ -15,26 +15,49 @@ insert into employees(name) values ('Nikolay');
 insert into employees(name) values ('Vladimir');
 insert into employees(name) values ('Ignat');
 
-insert into departments(name, employees_id) values ('продажи', 1);
-insert into departments(name, employees_id) values ('реклама', 2);
-insert into departments(name, employees_id) values ('финансы', 3);
-insert into departments(name, employees_id) values ('разработка', null );
-insert into departments(name, employees_id) values ('ремонт', null );
+insert into departments(name, employees_id) values ('РїСЂРѕРґР°Р¶Рё', 1);
+insert into departments(name, employees_id) values ('СЂРµРєР»Р°РјР°', 2);
+insert into departments(name, employees_id) values ('С„РёРЅР°РЅСЃС‹', 3);
+insert into departments(name, employees_id) values ('СЂР°Р·СЂР°Р±РѕС‚РєР°', null );
+insert into departments(name, employees_id) values ('СЂРµРјРѕРЅС‚', null );
 
-select * from employees left join departments on employees.id = departments.id;
-select * from employees right join departments on employees.id = departments.id;
-select * from employees cross join departments;
+select * from employees
+left join departments
+    on employees.id = departments.id;
 
-select * from departments left join employees on employees.id = departments.id where departments.employees_id is null;
+select * from employees
+right join departments
+    on employees.id = departments.id;
 
-select * from departments left join employees on employees.id = departments.id where employees.name is not null;
-select * from departments right join employees on employees.id = departments.id where departments.name is not null;
+select * from employees
+cross join departments;
+
+
+
+select * from departments
+left join employees
+    on employees.id = departments.id
+    where departments.employees_id is null;
+
+select * from departments
+left join employees
+    on employees.id = departments.id
+    where employees.name is not null;
+
+select * from departments
+right join employees
+    on employees.id = departments.id
+    where departments.name is not null;
+
+
 
 create table teens (
     id serial primary key , 
     name varchar(30),
     gender varchar(10)
 );
+
+
 
 insert into teens(name, gender) values ('Aleksey', 'male');
 insert into teens(name, gender) values ('Nikolay', 'male');
