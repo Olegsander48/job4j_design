@@ -21,10 +21,10 @@ create table cars(
     transmission_id int references car_transmissions(id)
 );
 
-insert into car_bodies(name) values ('седан');
-insert into car_bodies(name) values ('универсал');
-insert into car_bodies(name) values ('кабриолет');
-insert into car_bodies(name) values ('пикап');
+insert into car_bodies(name) values ('СЃРµРґР°РЅ');
+insert into car_bodies(name) values ('СѓРЅРёРІРµСЂСЃР°Р»');
+insert into car_bodies(name) values ('РєР°Р±СЂРёРѕР»РµС‚');
+insert into car_bodies(name) values ('РїРёРєР°Рї');
 
 insert into car_engines(name) values ('i4');
 insert into car_engines(name) values ('i6');
