@@ -1,25 +1,25 @@
-create table employees (
+create table departments (
     id serial primary key,
     name varchar(30)
 );
 
-create table departments (
+create table employees (
     id serial primary key,
     name varchar(30),
-    employees_id int references employees(id)
+    departments_id int references departments(id)
 );
 
-insert into employees(name) values ('Aleksey');
-insert into employees(name) values ('Aleksandr');
-insert into employees(name) values ('Nikolay');
-insert into employees(name) values ('Vladimir');
-insert into employees(name) values ('Ignat');
+insert into departments(name) values ('продажи');
+insert into departments(name) values ('реклама');
+insert into departments(name) values ('финансы');
+insert into departments(name) values ('разработка');
+insert into departments(name) values ('ремонт');
 
-insert into departments(name, employees_id) values ('продажи', 1);
-insert into departments(name, employees_id) values ('реклама', 2);
-insert into departments(name, employees_id) values ('финансы', 3);
-insert into departments(name, employees_id) values ('разработка', null );
-insert into departments(name, employees_id) values ('ремонт', null );
+insert into employees(name, departments_id) values ('Aleksey', 1);
+insert into employees(name, departments_id) values ('Aleksandr', 2);
+insert into employees(name, departments_id) values ('Nikolay', 3);
+insert into employees(name, departments_id) values ('Vladimir', null );
+insert into employees(name, departments_id) values ('Ignat', null );
 
 select * from employees
 left join departments
@@ -34,10 +34,10 @@ cross join departments;
 
 
 
-select * from departments
+select d.name from departments as d
 left join employees
-    on employees.id = departments.id
-    where departments.employees_id is null;
+    on employees.id = d.id
+    where employees.departments_id is null;
 
 select * from departments
 left join employees
@@ -66,4 +66,7 @@ insert into teens(name, gender) values ('Natasha', 'female');
 insert into teens(name, gender) values ('Vika', 'female');
 insert into teens(name, gender) values ('Alena', 'female');
 
-select * from teens as teens1 cross join teens as teens2;
+select teens1.name, teens1.gender, teens2.name, teens2.gender
+from teens as teens1
+cross join teens as teens2
+where teens1.gender != teens2.gender;
