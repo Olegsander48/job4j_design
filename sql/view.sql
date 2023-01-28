@@ -3,16 +3,16 @@ create table students (
     name varchar(50)
 );
 
-insert into students (name) values ('Èâàí Èâàíîâ');
-insert into students (name) values ('Ïåòð Ïåòðîâ');
+insert into students (name) values ('Ð˜Ð²Ð°Ð½ Ð˜Ð²Ð°Ð½Ð¾Ð²');
+insert into students (name) values ('ÐŸÐµÑ‚Ñ€ ÐŸÐµÑ‚Ñ€Ð¾Ð²');
 
 create table authors (
     id serial primary key,
     name varchar(50)
 );
 
-insert into authors (name) values ('Àëåêñàíäð Ïóøêèí');
-insert into authors (name) values ('Íèêîëàé Ãîãîëü');
+insert into authors (name) values ('ÐÐ»ÐµÐºÑÐ°Ð½Ð´Ñ€ ÐŸÑƒÑˆÐºÐ¸Ð½');
+insert into authors (name) values ('ÐÐ¸ÐºÐ¾Ð»Ð°Ð¹ Ð“Ð¾Ð³Ð¾Ð»ÑŒ');
 
 
 create table books (
@@ -21,11 +21,11 @@ create table books (
     author_id integer references authors(id)
 );
 
-insert into books (name, author_id) values ('Åâãåíèé Îíåãèí', 1);
-insert into books (name, author_id) values ('Êàïèòàíñêàÿ äî÷êà', 1);
-insert into books (name, author_id) values ('Äóáðîâñêèé', 1);
-insert into books (name, author_id) values ('Ìåðòâûå äóøè', 2);
-insert into books (name, author_id) values ('Âèé', 2);
+insert into books (name, author_id) values ('Ð•Ð²Ð³ÐµÐ½Ð¸Ð¹ ÐžÐ½ÐµÐ³Ð¸Ð½', 1);
+insert into books (name, author_id) values ('ÐšÐ°Ð¿Ð¸Ñ‚Ð°Ð½ÑÐºÐ°Ñ Ð´Ð¾Ñ‡ÐºÐ°', 1);
+insert into books (name, author_id) values ('Ð”ÑƒÐ±Ñ€Ð¾Ð²ÑÐºÐ¸Ð¹', 1);
+insert into books (name, author_id) values ('ÐœÐµÑ€Ñ‚Ð²Ñ‹Ðµ Ð´ÑƒÑˆÐ¸', 2);
+insert into books (name, author_id) values ('Ð’Ð¸Ð¹', 2);
 
 create table orders (
     id serial primary key,
@@ -41,9 +41,9 @@ insert into orders (book_id, student_id) values (4, 1);
 insert into orders (book_id, student_id) values (2, 2);
 
 
-create view show_students_with_3_or_more_books 
-    as select s.name as student, count(b.name), 
-        a.name as author, b.name as "book name" 
+create view show_students_with_3_or_more_books
+    as select s.name as student, count(b.name),
+        a.name as author, b.name as "book name"
         from students as s
             join orders o on s.id = o.student_id
             join books b on o.book_id = b.id
@@ -52,3 +52,5 @@ create view show_students_with_3_or_more_books
             having count(b.name) >= 3;
 
 select * from show_students_with_3_or_more_books;
+
+SET CLIENT_ENCODING TO 'UTF8';
