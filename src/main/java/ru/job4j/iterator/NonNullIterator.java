@@ -16,10 +16,9 @@ public class NonNullIterator implements Iterator<Integer> {
     public boolean hasNext() {
         boolean result = false;
         for (int i = index; i < data.length; i++) {
-            if (data[i] != null) {
-                result = true;
+            if (data[i] != null && !result) {
                 index = i;
-                break;
+                result = true;
             }
         }
         return result;
