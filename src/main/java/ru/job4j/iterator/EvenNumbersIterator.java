@@ -10,7 +10,6 @@ public class EvenNumbersIterator implements Iterator<Integer> {
 
     public EvenNumbersIterator(int[] data) {
         this.data = data;
-        //this.data = Arrays.stream(data).filter(num -> num % 2 == 0).toArray();
     }
 
     @Override
