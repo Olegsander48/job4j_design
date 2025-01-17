@@ -13,35 +13,23 @@ public class SimpleArrayList<T> implements SimpleList<T> {
 
     @Override
     public void add(T value) {
-        modCount++;
         if (size == container.length) {
             container = expand();
         }
+        modCount++;
         container[size++] = value;
     }
 
     @Override
     public T set(int index, T newValue) {
-        Objects.checkIndex(index, container.length);
-        T value = get(index);
-        if (size == container.length) {
-            container = expand();
-        }
-        System.arraycopy(
-                container,
-                index,
-                container,
-                index + 1,
-                size - index);
+        T previousValue = get(index);
         container[index] = newValue;
-        return value;
+        return previousValue;
     }
 
     @Override
     public T remove(int index) {
-        Objects.checkIndex(index, container.length);
-        modCount++;
-        T value = get(index);
+        T removedValue = get(index);
         System.arraycopy(
                 container,
                 index + 1,
@@ -49,8 +37,9 @@ public class SimpleArrayList<T> implements SimpleList<T> {
                 index,
                 container.length - index - 1
         );
+        modCount++;
         size--;
-        return value;
+        return removedValue;
     }
 
     @Override
