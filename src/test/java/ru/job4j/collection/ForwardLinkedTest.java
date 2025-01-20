@@ -16,29 +16,29 @@ class ForwardLinkedTest {
     @BeforeEach
     public void initData() {
         list = new ForwardLinked<>();
-        list.add(1);
-        list.add(2);
+        list.addLast(1);
+        list.addLast(2);
     }
 
     @Test
     void checkIteratorSimple() {
         assertThat(list).hasSize(2);
-        list.add(3);
-        list.add(4);
+        list.addLast(3);
+        list.addLast(4);
         assertThat(list).hasSize(4);
     }
 
     @Test
-    void checkAdd() {
+    void checkAddLast() {
         assertThat(list).containsExactly(1, 2);
-        list.add(3);
+        list.addLast(3);
         assertThat(list).containsExactly(1, 2, 3);
     }
 
     @Test
-    void whenAddAndGet() {
-        list.add(3);
-        list.add(4);
+    void whenAddLastAndGet() {
+        list.addLast(3);
+        list.addLast(4);
         assertThat(list.get(0)).isEqualTo(1);
         assertThat(list.get(1)).isEqualTo(2);
         assertThat(list.get(2)).isEqualTo(3);
@@ -58,9 +58,9 @@ class ForwardLinkedTest {
     }
 
     @Test
-    void whenAddAndDeleteFirstThenOk() {
+    void whenAddLastAndDeleteFirstThenOk() {
         assertThat(list).containsExactly(1, 2);
-        list.add(3);
+        list.addLast(3);
         assertThat(list).containsExactly(1, 2, 3);
         assertThat(list.deleteFirst()).isEqualTo(1);
         assertThat(list).containsExactly(2, 3);
@@ -77,31 +77,31 @@ class ForwardLinkedTest {
     }
 
     @Test
-    void whenAddIterHasNextTrue() {
+    void whenAddLastIterHasNextTrue() {
         Iterator<Integer> iterator = list.iterator();
         assertThat(iterator.hasNext()).isTrue();
     }
 
     @Test
-    void whenHasIteratorAndAddThenHasNextExceptionThrown() {
+    void whenHasIteratorAndAddLastThenHasNextExceptionThrown() {
         Iterator<Integer> iterator = list.iterator();
         assertThat(iterator.hasNext()).isTrue();
-        list.add(3);
+        list.addLast(3);
         assertThatThrownBy(iterator::hasNext)
                 .isInstanceOf(ConcurrentModificationException.class);
     }
 
     @Test
-    void whenHasIteratorAndAddThenNextExceptionThrown() {
+    void whenHasIteratorAndAddLastThenNextExceptionThrown() {
         Iterator<Integer> iterator = list.iterator();
         assertThat(iterator.hasNext()).isTrue();
-        list.add(3);
+        list.addLast(3);
         assertThatThrownBy(iterator::next)
                 .isInstanceOf(ConcurrentModificationException.class);
     }
 
     @Test
-    void whenAddIterNextOne() {
+    void whenAddLastIterNextOne() {
         Iterator<Integer> iterator = list.iterator();
         assertThat(iterator.next()).isEqualTo(1);
     }
@@ -115,14 +115,14 @@ class ForwardLinkedTest {
     }
 
     @Test
-    void whenAddIterMultiHasNextTrue() {
+    void whenAddLastIterMultiHasNextTrue() {
         Iterator<Integer> iterator = list.iterator();
         assertThat(iterator.hasNext()).isTrue();
         assertThat(iterator.hasNext()).isTrue();
     }
 
     @Test
-    void whenAddIterNextOneNextTwo() {
+    void whenAddLastIterNextOneNextTwo() {
         Iterator<Integer> iterator = list.iterator();
         assertThat(iterator.next()).isEqualTo(1);
         assertThat(iterator.next()).isEqualTo(2);
@@ -142,5 +142,16 @@ class ForwardLinkedTest {
         assertThat(second.hasNext()).isTrue();
         assertThat(second.next()).isEqualTo(2);
         assertThat(second.hasNext()).isFalse();
+    }
+
+    @Test
+    void whenAddLastAndDeleteLastThenOk() {
+        assertThat(list).containsExactly(1, 2);
+        list.addLast(3);
+        assertThat(list).containsExactly(1, 2, 3);
+        assertThat(list.deleteLast()).isEqualTo(3);
+        assertThat(list).containsExactly(1, 2);
+        assertThat(list.deleteLast()).isEqualTo(2);
+        assertThat(list).containsExactly(1);
     }
 }
