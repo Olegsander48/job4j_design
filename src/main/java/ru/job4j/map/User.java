@@ -1,8 +1,6 @@
 package ru.job4j.map;
 
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class User {
     private String name;
@@ -39,8 +37,27 @@ public class User {
         this.birthday = birthday;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        User user = (User) o;
+        return children == user.children
+                && Objects.equals(name, user.name)
+                && Objects.equals(birthday, user.birthday);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, children, birthday);
+    }
+
     public static void main(String[] args) {
-        Calendar calendar = Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance(Locale.CANADA);
         User user1 = new User("Sasha", 2, calendar);
         int hashCode1 = user1.hashCode();
         int hash1 = hashCode1 ^ (hashCode1 >>> 16);
@@ -54,7 +71,7 @@ public class User {
         Map<User, Object> map = new HashMap<>(16);
         map.put(user1, new Object());
         map.put(user2, new Object());
-
+        System.out.println(user1.equals(user2));
         System.out.println("User 1 hashcode: " + hashCode1 + ", hash: " + hash1 + ", bucket" + bucket1);
         System.out.println("User 2 hashcode: " + hashCode2 + ", hash: " + hash2 + ", bucket" + bucket2);
         for (Map.Entry<User, Object> entry : map.entrySet()) {
