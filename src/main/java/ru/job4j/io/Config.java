@@ -24,7 +24,6 @@ public class Config {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Мапа" + values);
     }
 
     public String value(String key) {
