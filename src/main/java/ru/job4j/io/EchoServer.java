@@ -17,10 +17,13 @@ public class EchoServer {
                     if (string.contains("msg=Bye")) {
                         output.write("Bye\r\n\r\n".getBytes());
                         server.close();
-                    } else {
+                    } else if (string.contains("msg=Hello")) {
                         output.write("Hello\r\n\r\n".getBytes());
+                    } else {
+                        output.write("What?!\r\n\r\n".getBytes());
+                        output.write(string.getBytes());
                     }
-                    System.out.println(string);
+                    /*System.out.println(string);*/
                     output.flush();
                 }
             }
