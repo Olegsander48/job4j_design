@@ -1,0 +1,9 @@
+2025-02-14 11:02:23,650 DEBUG ru.job4j.io.UsageLog4j:main:12 - debug message
+2025-02-14 11:02:23,652  INFO ru.job4j.io.UsageLog4j:main:13 - info message
+2025-02-14 11:02:23,652  WARN ru.job4j.io.UsageLog4j:main:14 - warn message
+2025-02-14 11:02:23,653 ERROR ru.job4j.io.UsageLog4j:main:15 - error message
+2025-02-14 11:02:23,654 DEBUG ru.job4j.io.UsageLog4j:main:18 - User info name : Aliaksandr Pryhodzich, age : 50
+2025-02-14 11:02:23,656 ERROR ru.job4j.io.UsageLog4j:main:27 - Date : 24.8.2077; Size : 67890, price: 1789456.99; Rate exchange 3.255 for $, worth buying: true
+2025-02-14 11:02:23,657 ERROR ru.job4j.io.UsageLog4j:main:33 - Exception in log example
+java.lang.Exception: Not supported code
+	at ru.job4j.io.UsageLog4j.main(UsageLog4j.java:31)
