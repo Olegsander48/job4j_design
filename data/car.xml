@@ -1,0 +1,8 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+<car brand="Mercedes" age="2006" electric="false">
+    <engine volume="5.5" horsePower="612"/>
+    <options>
+        <option>Panoramic roof</option>
+        <option>Hydraulic suspension</option>
+    </options>
+</car>
