@@ -40,4 +40,20 @@ public class Car {
                 + ", options=" + Arrays.toString(options)
                 + '}';
     }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public String[] getOptions() {
+        return options;
+    }
 }

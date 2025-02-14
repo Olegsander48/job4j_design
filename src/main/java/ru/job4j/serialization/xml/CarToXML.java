@@ -3,9 +3,13 @@ package ru.job4j.serialization.xml;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CarToXML {
     public static void main(String[] args) throws Exception {
@@ -31,5 +35,25 @@ public class CarToXML {
             Car result = (Car) unmarshaller.unmarshal(reader);
             System.out.println(result);
         }
+
+        /** JSONObject из json-строки строки */
+        JSONObject jsonEngine = new JSONObject("{\"engine volume\":\"5.5\", \"horsePower\":\"612\"}");
+
+        /** JSONArray из ArrayList */
+        String[] options = {"Panoramic roof", "Hydraulic suspension"};
+        JSONArray jsonOptions = new JSONArray(options);
+
+        /** JSONObject напрямую методом put */
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("brand", car.getBrand());
+        jsonObject.put("age", car.getAge());
+        jsonObject.put("engine", jsonEngine);
+        jsonObject.put("options", jsonOptions);
+
+        /** Выведем результат в консоль */
+        System.out.println(jsonObject.toString());
+
+        /** Преобразуем объект person в json-строку */
+        System.out.println(new JSONObject(car).toString());
     }
 }
