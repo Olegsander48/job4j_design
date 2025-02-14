@@ -26,5 +26,11 @@ public class UsageLog4j {
         char dollar = '$';
         LOG.error("Date : {}.{}.{}; Size : {}, price: {}; Rate exchange {} for {}, worth buying: {}",
                 day, month, year, size, price, rateExchange, dollar, flag);
+
+        try {
+            throw new Exception("Not supported code");
+        } catch (Exception e) {
+            LOG.error("Exception in log example", e);
+        }
     }
 }
