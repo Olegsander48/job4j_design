@@ -13,5 +13,18 @@ public class UsageLog4j {
         LOG.info("info message");
         LOG.warn("warn message");
         LOG.error("error message");
+        String name = "Aliaksandr Pryhodzich";
+        int age = 50;
+        LOG.debug("User info name : {}, age : {}", name, age);
+        byte day = 24;
+        short month = 8;
+        int year = 2077;
+        long size = 67890L;
+        double price = 1789456.99D;
+        float rateExchange = 3.255f;
+        boolean flag = true;
+        char dollar = '$';
+        LOG.error("Date : {}.{}.{}; Size : {}, price: {}; Rate exchange {} for {}, worth buying: {}",
+                day, month, year, size, price, rateExchange, dollar, flag);
     }
 }
