@@ -76,7 +76,6 @@ select p.name, p.price, p.expired_date
 from product p
 where p.expired_date <= '20.02.2025';
 
---дописать 4
 select p.price, t.name
 from product p
          join type t on t.id = p.type_id
