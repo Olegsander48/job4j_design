@@ -91,7 +91,8 @@ group by t.name;
 select p.name, p.price, p.expired_date
 from product p
          join type t on t.id = p.type_id
-where t.name = 'Сыр' or t.name = 'Молоко';
+where t.name = 'Сыр'
+   or t.name = 'Молоко';
 
 select t.name
 from product p
