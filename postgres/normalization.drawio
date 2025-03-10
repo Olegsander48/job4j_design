@@ -1,0 +1,178 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.1.0">
+  <diagram name="Page-1" id="dMaWaB902KZkXAHQsJe8">
+    <mxGraphModel dx="819" dy="422" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-22" value="gender_id (PK)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="529" y="120" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-23" value="gender" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="609" y="120" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-24" value="1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="529" y="160" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-25" value="2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="529" y="180" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-26" value="мужской" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="609" y="160" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-27" value="женский" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="609" y="180" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-30" value="Ольга Егорова" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="139" y="140" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-31" value="Иванов Сергей" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="139" y="170" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-32" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;1-ый Казынский переулок, д.14&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="259" y="140" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-34" value="Иванов Сергей" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="139" y="200" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-36" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;ул. Центральная, д.40 кв. 74&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="259" y="170" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-37" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;ул. Ленина, д.7, кв. 130&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="259" y="200" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-38" value="первичный ключ&amp;nbsp;&lt;span style=&quot;font-weight: 400;&quot;&gt;films_pkey&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=3;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="139" y="80" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WaCyH8LWcL7OSIg-5Jxt-39" target="WaCyH8LWcL7OSIg-5Jxt-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-61" value="связь один ко многим" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="WaCyH8LWcL7OSIg-5Jxt-60">
+          <mxGeometry x="-0.416" y="1" relative="1" as="geometry">
+            <mxPoint x="33" y="-9" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-39" value="foreign key&lt;br&gt;gender_id" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="359" y="100" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-40" value="2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="359" y="140" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-41" value="1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="359" y="170" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-42" value="1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="359" y="200" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-45" value="Пираты Карибского моря" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="330" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-46" value="Матрица: революция" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="360" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-48" value="Человек, который изменил все" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="390" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-52" value="film_id&lt;div&gt;(PK)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="290" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-53" value="1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="330" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-54" value="3" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="390" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-55" value="2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="360" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-56" value="Инерстеллар" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="590" y="420" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-43" value="&lt;span style=&quot;font-weight: normal;&quot;&gt;название&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="590" y="290" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-28" value="&lt;b&gt;полное имя&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="139" y="100" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-29" value="&lt;b&gt;адрес&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="259" y="100" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-59" value="4" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="420" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-62" value="1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="330" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-63" value="1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="350" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-64" value="2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="370" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-65" value="film_id&lt;div&gt;(PK&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="290" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-66" value="1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="330" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-67" value="3" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="370" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-68" value="2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="350" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-69" value="2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="390" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WaCyH8LWcL7OSIg-5Jxt-70" target="WaCyH8LWcL7OSIg-5Jxt-38">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="280" />
+              <mxPoint x="110" y="280" />
+              <mxPoint x="110" y="60" />
+              <mxPoint x="249" y="60" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-70" value="&lt;span style=&quot;font-weight: 400;&quot;&gt;foreign key&lt;/span&gt;&lt;br style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;films_pkey&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="240" y="290" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-71" value="4" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="390" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-81" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WaCyH8LWcL7OSIg-5Jxt-72" target="WaCyH8LWcL7OSIg-5Jxt-52">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-72" value="&lt;span style=&quot;font-weight: 400;&quot;&gt;foreign key&lt;/span&gt;&lt;br style=&quot;font-weight: 400;&quot;&gt;&lt;span style=&quot;font-weight: 400;&quot;&gt;film_id&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="320" y="290" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-74" value="4" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="410" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-75" value="3" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="410" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-76" value="1" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="330" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-77" value="2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="350" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-78" value="3" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="370" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-79" value="4" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="390" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-80" value="2" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="410" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-82" value="связь один ко многим" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="459.9985714285713" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="WaCyH8LWcL7OSIg-5Jxt-84" value="связь один ко многим" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="179.99857142857132" y="50" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
